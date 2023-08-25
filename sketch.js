@@ -7,12 +7,16 @@ let carroPoliciaNaTela;
 let bonecoX = 90; // Posição horizontal do boneco
 let bonecoY = 349; // Posição vertical do boneco
 let xCarro = 600;
+let carroLaranja ;
+let xCarroLaranja =  600 ;
+let yCarroLaranja = 96 ;
 
 // Preload é um pré-carregamento de determinada coisa.
 function preload() {
   fundoDaTela = loadImage("midia/img/fundoDeEstrada.PNG");
   personagemNaTela = loadImage("midia/img/militarPersonagem.png");
   carroPoliciaNaTela = loadImage("midia/img/carroPolicia.png");
+  carroLaranja = loadImage ("midia/img/carroLaranja.png");
 }
 
 function setup() {
@@ -26,7 +30,9 @@ function draw() {
 
   // Desenha o personagem na tela nas coordenadas especificadas
   image(personagemNaTela, bonecoX, bonecoY, larguraPersonagem, alturaPersonagem);
+  //carro na tela.
   image(carroPoliciaNaTela, xCarro, 75, 100, 30);
+  image(carroLaranja, xCarroLaranja, yCarroLaranja, 50, 40);
 
   movimentaCarro(); // Chamada para mover o carro de polícia
 
