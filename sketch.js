@@ -4,15 +4,12 @@ let personagemNaTela;
 const larguraPersonagem = 50;
 const alturaPersonagem = 50;
 let carroPoliciaNaTela;
+let xCarros = [600, 300, 600];
+let yCarros = [140, 175];
 let bonecoX = 90; // Posição horizontal do boneco
 let bonecoY = 349; // Posição vertical do boneco
-let xCarro = 600; // Posição inicial do carro de polícia na tela
 let carroLaranja; // Imagem do carro laranja
-let xCarroLaranja = 300; // Posição inicial do carro laranja na tela
-let yCarroLaranja = 140; // Posição vertical do carro laranja
-let carroVinhoNaTela; // Carro de cor vinho
-let xCarroVinho = 600; // Posição inicial do carro vinho na tela
-let yCarroVinho = 175; // Posição vertical do carro vinho
+////////////////////////////////////////// = 175; // Posição vertical do carro vinho
 let velocidadeCarroVinho = 3; // Velocidade do carro vinho
 
 // Pré-carregamento das imagens
@@ -35,15 +32,15 @@ function draw() {
 
   // Desenha o personagem na tela nas coordenadas especificadas
   image(personagemNaTela, bonecoX, bonecoY, larguraPersonagem, alturaPersonagem);
-  
+
   // Desenha o carro de polícia na tela nas coordenadas especificadas
-  image(carroPoliciaNaTela, xCarro, 75, 100, 30);
+  image(carroPoliciaNaTela, xCarros[0], 75, 100, 30);
 
   // Desenha o carro laranja na tela nas coordenadas especificadas
-  image(carroLaranja, xCarroLaranja, yCarroLaranja, 100, 30);
-  
+  image(carroLaranja, xCarros[1], yCarros[0], 100, 30);
+
   // Desenha o carro vinho na tela nas coordenadas especificadas
-  image(carroVinhoNaTela, xCarroVinho, yCarroVinho, 100, 30);
+  image(carroVinhoNaTela, xCarros[1], yCarros[1], 100, 30);
 
   movimentaCarro(); // Chamada para mover o carro de polícia
   movimentaCarroLaranja(); // Chamada para mover o carro laranja
@@ -74,32 +71,32 @@ function draw() {
 
 // Função para movimentar o carro de polícia
 function movimentaCarro() {
-  xCarro -= 2; // Move o carro para a esquerda
+  xCarros[0] -= 2; // Move o carro para a esquerda
   // Verifica se o carro saiu completamente da tela pela esquerda
-  if (xCarro < -100) {
+  if (xCarros[0] < -100) {
     // Reposiciona o carro à direita da tela
-    xCarro = width;
+    xCarros[0] = width;
   }
 }
 
 // Função para movimentar o carro laranja
 function movimentaCarroLaranja() {
   // Move o carro laranja para a esquerda
-  xCarroLaranja -= 2; 
+  xCarros[1] -= 2; 
   // Verifica se o carro laranja saiu completamente da tela pela esquerda
-  if (xCarroLaranja < -100) {
+  if (xCarros[1] < -100) {
     // Reposiciona o carro laranja à direita da tela
-    xCarroLaranja = width;
+    xCarros[1] = width;
   }
 }
 
 // Função para movimentar o carro vinho
 function movimentaCarroVinho() {
   // Move o carro vinho para a esquerda com a velocidade definida
-  xCarroVinho -= velocidadeCarroVinho;
+  xCarros[2] -= velocidadeCarroVinho;
   // Verifica se o carro vinho saiu completamente da tela pela esquerda
-  if (xCarroVinho < -100) {
+  if (xCarros[2] < -100) {
     // Reposiciona o carro vinho à direita da tela
-    xCarroVinho = width;
+    xCarros[2] = width;
   }
 }
