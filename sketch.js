@@ -8,20 +8,18 @@ let xCarros = [600, 300, 600];
 let yCarros = [150, 175];
 let bonecoX = 90; // Posição horizontal do boneco
 let bonecoY = 349; // Posição vertical do boneco
-let carroLaranja; // Imagem do carro laranja
+let carroLaranjaNaTela; // Imagem do carro laranja
 let carroVinhoNaTela; // Imagem do carro vinho
 let velocidadeCarroVinho = 4; // Velocidade do carro vinho
 let velocidadeCarroLaranja = 6; // Velocidade do carro laranja
-let imagemCarros;
 
 // Pré-carregamento das imagens
 function preload() {
   fundoDaTela = loadImage("midia/img/fundoDeEstrada.PNG");
   personagemNaTela = loadImage("midia/img/militarPersonagem.png");
   carroPoliciaNaTela = loadImage("midia/img/carroPolicia.png");
-  carroLaranja = loadImage("midia/img/carroLaranja.png");
+  carroLaranjaNaTela = loadImage("midia/img/carroLaranja.png");
   carroVinhoNaTela = loadImage("midia/img/carroVinho.png"); 
-  imagemCarros = [carroPoliciaNaTela,carroLaranja,carroVinhoNaTela]
 }
 
 function setup() {
@@ -37,13 +35,13 @@ function draw() {
   image(personagemNaTela, bonecoX, bonecoY, larguraPersonagem, alturaPersonagem);
 
   // Desenha o carro de polícia na tela nas coordenadas especificadas
-  image(imagemCarros[0], xCarros[0], 75, 100, 30);
+  image(carroPoliciaNaTela, xCarros[0], 75, 100, 30);
 
   // Desenha o carro laranja na tela nas coordenadas especificadas
-  image(imagemCarros[1], xCarros[1], yCarros[0], 100, 30);
+  image(carroLaranjaNaTela, xCarros[1], yCarros[0], 100, 30);
 
   // Desenha o carro vinho na tela nas coordenadas especificadas
-  image(imagemCarros[2], xCarros[2], yCarros[1], 100, 30);
+  image(carroVinhoNaTela, xCarros[2], yCarros[1], 100, 30);
 
   movimentaCarro(); // Chamada para mover o carro de polícia
   movimentaCarroLaranja(); // Chamada para mover o carro laranja
