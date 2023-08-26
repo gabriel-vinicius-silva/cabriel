@@ -5,12 +5,13 @@ const larguraPersonagem = 50;
 const alturaPersonagem = 50;
 let carroPoliciaNaTela;
 let xCarros = [600, 300, 600];
-let yCarros = [140, 175];
+let yCarros = [150, 175];
 let bonecoX = 90; // Posição horizontal do boneco
 let bonecoY = 349; // Posição vertical do boneco
 let carroLaranja; // Imagem do carro laranja
-////////////////////////////////////////// = 175; // Posição vertical do carro vinho
-let velocidadeCarroVinho = 3; // Velocidade do carro vinho
+let carroVinhoNaTela; // Imagem do carro vinho
+let velocidadeCarroVinho = 4; // Velocidade do carro vinho
+let velocidadeCarroLaranja = 6; // Velocidade do carro laranja
 
 // Pré-carregamento das imagens
 function preload() {
@@ -40,7 +41,7 @@ function draw() {
   image(carroLaranja, xCarros[1], yCarros[0], 100, 30);
 
   // Desenha o carro vinho na tela nas coordenadas especificadas
-  image(carroVinhoNaTela, xCarros[1], yCarros[1], 100, 30);
+  image(carroVinhoNaTela, xCarros[2], yCarros[1], 100, 30);
 
   movimentaCarro(); // Chamada para mover o carro de polícia
   movimentaCarroLaranja(); // Chamada para mover o carro laranja
@@ -81,8 +82,8 @@ function movimentaCarro() {
 
 // Função para movimentar o carro laranja
 function movimentaCarroLaranja() {
-  // Move o carro laranja para a esquerda
-  xCarros[1] -= 2; 
+  // Move o carro laranja para a esquerda com a velocidade definida
+  xCarros[1] -= velocidadeCarroLaranja; 
   // Verifica se o carro laranja saiu completamente da tela pela esquerda
   if (xCarros[1] < -100) {
     // Reposiciona o carro laranja à direita da tela
