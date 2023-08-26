@@ -36,7 +36,11 @@ function draw() {
   // Desenha o boneco na tela nas coordenadas especificadas
   image(personagemNaTela, xBoneco, yBoneco, larguraPersonagem, alturaPersonagem);
   verificaColisao();
-  
+
+  // Restrições para evitar que o boneco saia pelas bordas
+  xBoneco = constrain(xBoneco, 0, width - larguraPersonagem);
+  yBoneco = constrain(yBoneco, 0, height - alturaPersonagem);
+
   // Desenha o carro de polícia na tela nas coordenadas especificadas
   image(carroPoliciaNaTela, xCarros[0], 75, comprimentoDoCarro, alturaDoCarro);
 
